@@ -1,0 +1,14 @@
+F:\Development\BMS\BMS_Meyers_ExcelAutomation\BMS_Meyers_ExcelAutomation\bin\Debug\BMS_Meyers_ExcelAutomation.dll
+F:\Development\BMS\BMS_Meyers_ExcelAutomation\BMS_Meyers_ExcelAutomation\bin\Debug\BMS_Meyers_ExcelAutomation.pdb
+F:\Development\BMS\BMS_Meyers_ExcelAutomation\BMS_Meyers_ExcelAutomation\bin\Debug\BMS_Meyers_ExcelAutomation.dll.manifest
+F:\Development\BMS\BMS_Meyers_ExcelAutomation\BMS_Meyers_ExcelAutomation\bin\Debug\BMS_Meyers_ExcelAutomation.vsto
+F:\Development\BMS\BMS_Meyers_ExcelAutomation\BMS_Meyers_ExcelAutomation\bin\Debug\Microsoft.Office.Tools.Common.v4.0.Utilities.dll
+F:\Development\BMS\BMS_Meyers_ExcelAutomation\BMS_Meyers_ExcelAutomation\bin\Debug\Microsoft.Office.Tools.Common.v4.0.Utilities.xml
+F:\Development\BMS\BMS_Meyers_ExcelAutomation\BMS_Meyers_ExcelAutomation\obj\Debug\BMS_Meyers_ExcelAutomation.csprojResolveAssemblyReference.cache
+F:\Development\BMS\BMS_Meyers_ExcelAutomation\BMS_Meyers_ExcelAutomation\obj\Debug\BMS_Meyers_ExcelAutomation.Properties.Resources.resources
+F:\Development\BMS\BMS_Meyers_ExcelAutomation\BMS_Meyers_ExcelAutomation\obj\Debug\BMS_Meyers_ExcelAutomation.csproj.GenerateResource.Cache
+F:\Development\BMS\BMS_Meyers_ExcelAutomation\BMS_Meyers_ExcelAutomation\obj\Debug\BMS_Meyers_ExcelAutomation.dll
+F:\Development\BMS\BMS_Meyers_ExcelAutomation\BMS_Meyers_ExcelAutomation\obj\Debug\BMS_Meyers_ExcelAutomation.pdb
+F:\Development\BMS\BMS_Meyers_ExcelAutomation\BMS_Meyers_ExcelAutomation\obj\Debug\BMS_Meyers_ExcelAutomation.Forms.Ribbon1.resources
+F:\Development\BMS\BMS_Meyers_ExcelAutomation\BMS_Meyers_ExcelAutomation\obj\Debug\BMS_Meyers_ExcelAutomation.Forms.Form1.resources
+F:\Development\BMS\BMS_Meyers_ExcelAutomation\BMS_Meyers_ExcelAutomation\obj\Debug\BMS_Meyers_ExcelAutomation.Forms.Form2.resources
