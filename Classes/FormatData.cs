@@ -104,16 +104,16 @@ namespace BMS_Meyers_ExcelAutomation.Classes {
 
 
             // Print the data to a formatted ws
-            format(experimentsData);
+            makeFormattedWorksheet(experimentsData);
 
             // Expand columns to fit data
             formattedWs.Columns.AutoFit();
 
             // Perform statistics on the formatted ws
-            stats();
+            calculateStats();
 
             // Print final stats needed to graph on the final ws
-            final(experimentsData);
+            makeFinalWorksheet(experimentsData);
 
             // Expand columns to fit data
             finalWs.Columns.AutoFit();
@@ -126,9 +126,9 @@ namespace BMS_Meyers_ExcelAutomation.Classes {
         /// <author>Chris Meyers</author>
         private List<List<Dictionary<String, Dictionary<String, Double>>>> parseData() {
             List<List<Dictionary<String, Dictionary<String, Double>>>> experiments = new List<List<Dictionary<String, Dictionary<String, Double>>>>();
-            List<Dictionary<String, Dictionary<String, Double>>> experiment;// = new List<Dictionary<String, Dictionary<String, Double>>>();
-            Dictionary<String, Dictionary<String, Double>> sample;// = new Dictionary<String, Dictionary<String, Double>>();
-            Dictionary<String, Double> sampleDictionary; // = new Dictionary<String, Double>();
+            List<Dictionary<String, Dictionary<String, Double>>> experiment;
+            Dictionary<String, Dictionary<String, Double>> sample;
+            Dictionary<String, Double> sampleDictionary;
 
             int i = 1;
             int j = 1;
@@ -180,7 +180,11 @@ namespace BMS_Meyers_ExcelAutomation.Classes {
                     i = i + 3; //Move over to next sample in experiment
                     j = getTopRowForExperiment(exp);
                     counter = 0;
-                    //sampleDictionary.Clear();
+                    // Sets number of samples per experiment to max of all experiments
+                    if (experiment.Count > numSamples) {
+                        numSamples = experiment.Count;
+                    }
+                    
                 }
                 // Reset position for next experiment
                 i = 1;
@@ -223,14 +227,14 @@ namespace BMS_Meyers_ExcelAutomation.Classes {
         /// <param name="expData">The list created by parseData that contains all the data from
         /// the raw worksheet.</param>
         /// <author>Chris Meyers</author>
-        private void format(List<List<Dictionary<String, Dictionary<String, Double>>>> expData) {
+        private void makeFormattedWorksheet(List<List<Dictionary<String, Dictionary<String, Double>>>> expData) {
             int expNum = 0;
             int i = 1;
             int j = 1;
             ArrayList variablesInExperiments = new ArrayList();
             ArrayList samplesInExperiment = new ArrayList();
 
-            for (int expIndex = 0; expIndex < numExperiments - 1; expIndex++) {
+            for (int expIndex = 0; expIndex < numSamples; expIndex++) {
                 foreach (List<Dictionary<String, Dictionary<String, Double>>> e in expData) { // experiment loop
                     Dictionary<String, Dictionary<String, Double>> sample = new Dictionary<String, Dictionary<String, Double>>();
                     sample = e[expIndex];
@@ -272,8 +276,8 @@ namespace BMS_Meyers_ExcelAutomation.Classes {
                         }
 
                         // Print out data for Specific variables
-                        //printValue(data, i, j, counter, expNum, sampleName, "bl");
-                        //printValue(data, i + numExperiments + 1, j, counter, expNum, sampleName, "bl%peak h");
+                        //print(data, i, j, counter, expNum, sampleName, "bl");
+                        //print(data, i + numExperiments + 1, j, counter, expNum, sampleName, "bl%peak h");
 
                         i++;
                     }
@@ -294,11 +298,6 @@ namespace BMS_Meyers_ExcelAutomation.Classes {
             variablesInExperiments.Sort();
             variablesInExperiments.Reverse();
             numVariables = (int)variablesInExperiments[0];
-
-            //Determine the max number of samples
-            samplesInExperiment.Sort();
-            samplesInExperiment.Reverse();
-            numSamples = (int)samplesInExperiment[0];
         }
 
         /// <summary>
@@ -333,7 +332,7 @@ namespace BMS_Meyers_ExcelAutomation.Classes {
         /// worksheet.
         /// </summary>
         /// <author>Chris Meyers</author>
-        private void stats() {
+        private void calculateStats() {
             int startPoint = 2;
             int locationOfAOffset = 4;
             int locationOfBStatic = 2;
@@ -406,7 +405,7 @@ namespace BMS_Meyers_ExcelAutomation.Classes {
         /// <param name="expData">The list created by parseData that contains all the data from
         /// the raw worksheet.</param>
         /// <author>Chris Meyers</author>
-        private void final(List<List<Dictionary<String, Dictionary<String, Double>>>> experiments) {
+        private void makeFinalWorksheet(List<List<Dictionary<String, Dictionary<String, Double>>>> experiments) {
             int dataStartRow = 2;
             int dataStartCol = 2;
 
