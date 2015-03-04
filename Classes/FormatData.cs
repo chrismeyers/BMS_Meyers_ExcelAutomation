@@ -412,7 +412,7 @@ namespace BMS_Meyers_ExcelAutomation.Classes {
             // Print means and SEMs to final ws
             int counter = 0;
             for (int row = 0; row < numVariables; row++) {
-                for (int col = 0; col < numSamples + 2; col+=2) {
+                for (int col = 0; col < 2 * (numSamples - 1); col+=2) {
                     Double currentMean = (Double)means[counter];
                     Double currentSEM = (Double)SEMs[counter];
                     finalWs.Cells[row + dataStartRow, dataStartCol + col] = currentMean;
