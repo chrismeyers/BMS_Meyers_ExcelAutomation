@@ -415,8 +415,27 @@ namespace BMS_Meyers_ExcelAutomation.Classes {
                 for (int col = 0; col < 2 * (numSamples - 1); col+=2) {
                     Double currentMean = (Double)means[counter];
                     Double currentSEM = (Double)SEMs[counter];
-                    finalWs.Cells[row + dataStartRow, dataStartCol + col] = currentMean;
-                    finalWs.Cells[row + dataStartRow, dataStartCol + col + 1] = currentSEM;
+                    Excel.Range currentMeanLocation = finalWs.Cells[row + dataStartRow, dataStartCol + col];
+                    Excel.Range currentSEMLocation = finalWs.Cells[row + dataStartRow, dataStartCol + col + 1];
+
+                    // Checks to see if current mean is a div-by-0 (stored as NaN, printed as 65535)
+                    if (Double.IsNaN(currentMean)) {
+                        ((Excel.Range)currentMeanLocation).Font.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.Red);
+                        ((Excel.Range)currentMeanLocation).Value = 0.001;
+                    }
+                    else {
+                        ((Excel.Range)currentMeanLocation).Value = currentMean;
+                    }
+
+                    // Checks to see if current SEM is a div-by-0 (stored as NaN, printed as 65535)
+                    if (Double.IsNaN(currentSEM)) {
+                        ((Excel.Range)currentSEMLocation).Font.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.Red);
+                        ((Excel.Range)currentSEMLocation).Value = 0.001;
+                    }
+                    else {
+                        ((Excel.Range)currentSEMLocation).Value = currentSEM;
+                    }
+                    
                     counter++;
                 }
             }

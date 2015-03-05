@@ -5,8 +5,7 @@
     <StartProgram>G:\Program Files %28x86%29\Microsoft Office\Office12\EXCEL.EXE</StartProgram>
   </PropertyGroup>
   <PropertyGroup>
-    <PublishUrlHistory>
-    </PublishUrlHistory>
+    <PublishUrlHistory>publish\</PublishUrlHistory>
     <InstallUrlHistory />
     <SupportUrlHistory />
   </PropertyGroup>
